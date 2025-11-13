@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: privacy-backroom-backend
+    env: node
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    healthCheckPath: "/health"
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: ALLOWED_ORIGINS
+        value: "https://privacybackroom.app"
